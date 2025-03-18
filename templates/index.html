@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My CS50 Project</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html>
+{% block title %} Home {% endblock %}
+
+{% block header %}
+    <h1>Welcome to the Homepage</h1>
+{% endblock %}
+
+{% block container %}
+    <h4>This is the body of the page</h4>
+{% endblock %}
