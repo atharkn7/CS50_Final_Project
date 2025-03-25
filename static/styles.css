@@ -1,0 +1,639 @@
+:root {
+    --bgcolor: #FAEBD7;
+    --bgcolor_lighter: #fffaf0;
+    --brown: #712b22;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+nav,
+main,
+footer {
+    border: 2px solid black;
+}
+
+/* LAYOUT STYLING */
+
+/* Navbar */
+nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    height: 150px;
+    z-index: 1;
+
+    /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.3);
+
+    /* Blur effect */
+    backdrop-filter: blur(10px);
+
+    /* Smooth transition for resizing */
+    transition: height 0.3s ease-in-out;
+}
+
+
+.nav-logo {
+    flex: 1.75;
+    /* flex-grow, flex-shrink, flex-basis */
+    align-content: center;
+}
+
+.logo {
+    color: var(--brown);
+    padding-left: 8%;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+}
+
+.nav a {
+    /* Got from ChatGPT to stop overflow*/
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-item {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-item:hover,
+.active {
+    transform: scale(1.20);
+}
+
+/* Modern underline effect for active state (Got from ChatGPT) */
+.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brown);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Dropdown */
+.services-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Places it directly below the "Services" */
+    left: -150%;
+    color: black;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 225px;
+    font-size: 12px;
+    line-height: 2.5em;
+}
+
+/* Show dropdown when hovering over the parent */
+.services:hover .services-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-item {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+}
+
+.service-item:hover {
+    background-color: var(--bgcolor);
+
+    &:nth-child(1) {
+        background-color: white;
+    }
+}
+
+/* Main Content section */
+main {
+    background-color: var(--bgcolor);
+    overflow: hidden;
+}
+
+/* INDEX.HTML Main Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--bgcolor);
+    height: 45vh;
+    align-content: center;
+}
+
+.hero-text {
+    font-family: "Playfair Display", serif;
+    font-size: 5rem;
+    color: #7A5C58;
+    /* Elegant brown tone */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.hero .btn-services {
+    width: 20%;
+    margin-top: 1rem;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    color: #7A5C58;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+
+/* Animation added with the help of ChatGPT */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Middle section of main */
+.main-section2 {
+    height: 40vh;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--bgcolor_lighter);
+    gap: 10px;
+}
+
+.ms2-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px;
+    height: 100%;
+    padding-top: 75px;
+}
+
+/* Hover Animation from ChatGPT */
+.ms2-content:hover h3 {
+    color: var(--brown);
+    transition: color 0.5s ease-in-out;
+}
+
+.content-row {
+    width: 70%;
+    text-align: center;
+    align-self: center;
+}
+
+.content-row img {
+    width: clamp(50px, 100px, 200px);
+}
+
+/* Lower Section of Main */
+.main-section3 {
+    height: 60vh;
+    text-align: center;
+    align-content: center;
+    display: flex;
+}
+
+.ms3-content {
+    width: 50%;
+}
+
+.ms3-content img {
+    width: clamp(200px, 550px, 600px);
+}
+
+.ms3-content-txt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 20rem 0 0;
+}
+
+.ms3-row {
+    text-align: left;
+    margin-top: 8px;
+}
+
+.ms3-row p {
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.ms3-row .btn-services {
+    float: right;
+}
+
+/* Infinite scroll (Adapted from - https://blog.logto.io/css-only-infinite-scroll) */
+.carousel {
+    margin: 0 auto;
+    padding: 20px 0;
+    max-width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    display: flex;
+
+    >* {
+        flex: 0 0 100%;
+    }
+
+    &:hover .group {
+        animation-play-state: paused;
+    }
+}
+
+.group {
+    display: flex;
+    gap: 20px;
+    /* Add padding to the right to create a gap between the last and first card. */
+    padding-right: 20px;
+
+    will-change: transform;
+    /* letting browser know what we're going to animate. */
+    animation: scrolling 16s linear infinite;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.card {
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+}
+
+/* Infinite scroll END*/
+
+/* SERVICES.HTML */
+.main-services {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}
+
+.service-img-content {
+    flex: 1.5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.service-img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 30px 6px;
+    opacity: 95%;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.service-img:hover {
+    transform: scale(1.01);
+    opacity: 100%;
+}
+
+
+.service-content {
+    flex: 1;
+    padding: 0px 13% 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.service-content-row {
+    text-align: left;
+    padding-top: 15px;
+}
+
+.service-content-row h1 {
+    font-weight: bold;
+    width: 90%;
+}
+
+.row_btn {
+    text-align: center;
+}
+
+.row_btn .btn-services {
+    height: 40px;
+    width: 20%;
+    margin-top: 15px;
+}
+
+.btn-services {
+    width: 40%;
+    height: 2.5rem;
+    background-color: #a52a2a;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 7px 7px 10px #dfcbb0;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.btn-services:hover {
+    background-color: #750e0e;
+}
+
+.text-block {
+    text-align: justify;
+    background-color: #FAEBD7;
+    margin: 0;
+    padding: 2px 0;
+    font-size: 14px;
+}
+
+.color-text {
+    background-color: #eaad5b;
+    margin: 0 0 0 5%;
+    padding: 2px 12px;
+}
+
+/* Lower section - SERVICES */
+
+.ms2 {
+    height: 35vh;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 2.5rem;
+}
+
+/* Implementing Form as a GRID */
+.service-form {
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-auto-columns: minmax(150px, auto);
+    grid-gap: 20px;
+    justify-content: center;
+    align-content: start;
+}
+
+.sf-grid_btn {
+    grid-column: span 3;
+}
+
+.service-input,
+.sf-grid select {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 7px 7px 10px #dfcbb0;
+    padding-left: 20px;
+}
+
+.calendar {
+    padding-right: 8px;
+}
+
+/* ABOUT US */
+
+.about-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 80vh 50vh;
+    padding: 10px;
+    margin-top: 10vh;
+}
+
+.about-grid1,
+.about-grid2 {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.about-grid1 {
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0 10%;
+    padding: 60px 40px 40px 15%;
+}
+
+.about-grid2 {
+    justify-content: flex-start;
+    padding: 100px 70px;
+    background: #f5d6ae;
+    margin: 5% 35% 20% 0%;
+}
+
+.about-grid2 .row {
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.icon-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.about-icon {
+    min-width: 20px;
+    min-height: 20px;
+    width: 25px;
+    height: 28px;
+    padding-top: 2px;
+    margin-right: 5px;
+}
+
+.about-grid3 {
+    grid-column: span 2;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.map {
+    box-shadow: 7px 7px 10px #dfcbb0;
+}
+
+.contact-row {
+    align-self: start;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.contact-row input,
+.contact-row textarea {
+    width: 89%;
+    height: 3.5rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 1px 1px 2px #dfcbb0;
+    padding-left: 20px;
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
+.contact-row textarea {
+    height: 100px;
+    padding: 10px 0 0 20px;
+}
+
+.contact-row button {
+    width: 26%;
+    height: 2.5rem;
+    background-color: #a52a2a;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 2px 2px 2px #dfcbb0;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    margin: 3rem 11% 0 0;
+    float: inline-end;
+}
+
+.contact-row button:hover {
+    background-color: #750e0e;
+    color: white;
+}
+
+
+/* END ABOUT STYLING */
+
+/* Apology webpage */
+.apology {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.apology img {
+    width: clamp(200px, 500px, 800px);
+}
+
+.apology-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* Footer styling */
+
+.foot-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 5rem;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+.foot-content {
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.foot1 {
+    flex: 3;
+}
+
+.foot2 {
+    flex: 1;
+}
+
+.foot3 {
+    flex: 1;
+}
+
+.foot4 {
+    flex: 2;
+    text-align: right;
+}
+
+.foot-item {
+    color: inherit;
+    text-decoration: none;
+    line-height: 2em;
+    text-align: inherit;
+}
+
+.foot-item p {
+    font-size: 15px;
+    line-height: 1.4em;
+    font-weight: 375;
+}
+
+.foot-para {
+    width: 300px;
+    text-align: justify;
+    line-height: 1.25em;
+    font-weight: lighter;
+}
+
+.footer-icons {
+    min-height: 10px;
+    min-width: 10px;
+    width: 23px;
+}
+
+.social_icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+}
