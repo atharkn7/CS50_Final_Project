@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+<!-- Extending Title -->
+{% block title %} About {% endblock %}
+
+<!-- Extending Body -->
+{% block body %}
+<main>
+    <div class="about-main">
+        <div class="about-grid1">
+            <div class="contact-row">
+                <h5>CONTACT FORM</h5>
+            </div>
+            <div class="contact-row">
+                <h1>Ask Us Anything</h1>
+            </div>
+            <div class="contact-row">
+                <form action="/about" method="post">
+                    <input autocomplete="off" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="contact-row">
+                <input autocomplete="off" name="phone_number" placeholder="Mobile No" type="number" required>
+            </div>
+            <div class="contact-row">
+                <textarea autocomplete="off" name="message" placeholder="Your message (Optional)"></textarea>
+            </div>
+            <div class="contact-row">
+                <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+        <div class="about-grid2">
+            <div class="row">
+                <div class="icon-row">
+                    <img class="about-icon" src="/static/media/icons/house.png" alt="address">
+                    <h4>Address</h4>
+                </div>
+                <div>
+                    <p>C-146 Basement, Block C, Lajpat Nagar, Delhi 110024, India</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="icon-row">
+                    <img class="about-icon" src="/static/media/icons/call.png" alt="address">
+                    <h4>Phone</h4>
+                </div>
+                <div>
+                    <p>+91 9876 XXX 123</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="icon-row">
+                    <img class="about-icon" src="/static/media/icons/email.png" alt="address">
+                    <h4>Email</h4>
+                </div>
+                <div>
+                    <p>merakmakeovers@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-grid3">
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.940552462172!2d77.23783117613564!3d28.571547786846292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce301f7549049%3A0x28a887f44f1b4630!2sMerak%20Makeovers!5e0!3m2!1sen!2sca!4v1742683927085!5m2!1sen!2sca"
+                width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</main>
+{% endblock %}

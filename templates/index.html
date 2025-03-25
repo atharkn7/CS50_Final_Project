@@ -1,19 +1,123 @@
 {% extends "layout.html" %}
 
-
+<!-- Extending Title -->
 {% block title %} Home {% endblock %}
 
-{% block header %}
-    <h1>Welcome to the Homepage</h1>
-{% endblock %}
-
-{% block container %}
-    <p>This is the body of the page</p>
-    {% for user in users: %}
-        <ul>
-            <li> {{user.id}} </li>
-            <li> {{user.name}} </li>
-            <li> {{user.age}} </li>
-        </ul>
-    {% endfor %}
+<!-- Extending Body -->
+{% block body %}
+<main>
+    <!-- Upper section of Home -->
+    <div class="hero">
+        <h1 class="hero-text">MERAKMAKEOVERS</h1>
+        <p class="sub-text">Where Beauty Meets Elegance</p>
+        <button class="btn-services" onclick="location.href='/services#main-services'" type="submit">BOOK NOW</button>
+    </div>
+    <!-- Infinite scroll (Adapted from - https://blog.logto.io/css-only-infinite-scroll) -->
+    <div class="carousel">
+        <div class="group">
+            <div class="card">
+                <img src="/static/media/service_imgs/bridal_makeup.jpg" alt="Service Image">
+            </div>
+            <div class="card">
+                <img src="/static/media/service_imgs/hair_keratin_treatment.jpg" alt="Service Image">
+            </div>
+            <div class="card">
+                <img src="/static/media/service_imgs/bridal_airbrush_makeup.jpg" alt="Service Image">
+            </div>
+            <div class="card">
+                <img src="/static/media/service_imgs/hair_highlights.jpg" alt="Service Image">
+            </div>
+        </div>
+        <div aria-hidden class="group">
+            <div class="card">
+                <img src="/static/media/service_imgs/bridal_makeup.jpg" alt="Service Image">
+            </div>
+            <div class="card">
+                <img src="/static/media/service_imgs/hair_keratin_treatment.jpg" alt="Service Image">
+            </div>
+            <div class="card">
+                <img src="/static/media/service_imgs/bridal_airbrush_makeup.jpg" alt="Service Image">
+            </div>
+            <div class="card">
+                <img src="/static/media/service_imgs/hair_highlights.jpg" alt="Service Image">
+            </div>
+        </div>
+    </div>
+    <!-- Middle section of Home -->
+    <div class="main-section2">
+        <!-- Benefit 1 -->
+        <div class="ms2-content">
+            <div class="content-row">
+                <img src="/static/media/icons/natural.png" alt="Benefit Logo">
+            </div>
+            <div class="content-row">
+                <h3>Natural Ingredients</h3>
+            </div>
+            <div class="content-row">
+                <p>Products we use while doing makeup are safer for your skin & health.</p>
+            </div>
+        </div>
+        <!-- Benefit 2 -->
+        <div class="ms2-content">
+            <div class="content-row">
+                <img src="/static/media/icons/fragrance.png" alt="Benefit Logo">
+            </div>
+            <div class="content-row">
+                <h3>Fragrance Free</h3>
+            </div>
+            <div class="content-row">
+                <p>We take care of sensitive skin, hence we don’t prefer to use natural, synthetic or essential
+                    oil-containing products.</p>
+            </div>
+        </div>
+        <!-- Benefit 3 -->
+        <div class="ms2-content">
+            <div class="content-row">
+                <img src="/static/media/icons/allergy.png" alt="Benefit Logo">
+            </div>
+            <div class="content-row">
+                <h3>Allergy Tested</h3>
+            </div>
+            <div class="content-row">
+                <p>All the products we use are allergy-free and safe to use.</p>
+            </div>
+        </div>
+        <!-- Benefit -->
+        <div class="ms2-content">
+            <div class="content-row">
+                <img src="/static/media/icons/price.png" alt="Benefit Logo">
+            </div>
+            <div class="content-row">
+                <h3>Transparent Pricing</h3>
+            </div>
+            <div class="content-row">
+                <p>We believe that the money you spent should be the worth of the result so the price justify our
+                    services.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Lower section of Home -->
+    <div class="main-section3">
+        <div class="ms3-content">
+            <img src="/static/media/service_imgs/main_hair.webp" alt="Hair Styling">
+        </div>
+        <div class="ms3-content ms3-content-txt">
+            <div class="ms3-row">
+                <h6>PURE AND SIMPLE</h6>
+            </div>
+            <div class="ms3-row">
+                <h1>Blowout, Updo, or special event styling to achieve your desired look</h1>
+            </div>
+            <div class="ms3-row">
+                <p>Experience a professional hair treatment for smooth, voluminous hair, an elegant style for a polished
+                    and sophisticated look, or professionalised styling for special events to achieve your perfect
+                    appearance.</p>
+            </div>
+            <div class="ms3-row">
+                <button class="btn-services" onclick="location.href='/services#main-services'" type="submit">BOOK
+                    NOW</button>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}

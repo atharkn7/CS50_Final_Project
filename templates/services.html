@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+
+<!-- Extending Title -->
+{% block title %} Services {% endblock %}
+
+<!-- Extending Body -->
+{% block body %}
+<main>
+    <div class="main-services ms1">
+        <div class="service-img-content">
+            {% set image_name = 'services' %}
+            {% set image_text = 'MAKEUP SERVICES' %}
+
+            {% if service != '': %}
+            {% set image_name = service %}
+            {% set image_text = service_value %}
+            {% endif %}
+            <img class="service-img" src="/static/media/service_imgs/{{ image_name }}.jpg" alt="{{ image_text }}"
+                id="service-img">
+        </div>
+        <div class="service-content">
+            <div class="service-content-row">
+                <h6> {{image_text}} </h6>
+            </div>
+            <!-- No service selected -->
+            {% if image_text == 'MAKEUP SERVICES': %}
+            <div class="service-content-row">
+                <h1>Makeup Price List And Makeup Packages</h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">Get Ready To Flaunt Your Stellar Bridal Look On Your Wedding Day!</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">It’s your big day, and you want to be at your best, right? At
+                    <strong>MERAKMAKEOVERS</strong>, we know what it is to get dolled up for your special day. And so,
+                    we’ve brought the best wedding makeup artists with a range of bridal makeup packages that make you
+                    look absolutely breathtaking on your wedding day! From pre-wedding packages to gorgeous hairstyles
+                    and wedding day makeup, we can take up all to bring out the best in you.</p>
+            </div>
+            <!-- BRIDAL MAKEUP -->
+            {% elif image_text == 'BRIDAL MAKEUP': %}
+            <div class="service-content-row">
+                <h1> Experience the Magic of MerakMakeover </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">A substance naturally produced by the body and found in hair and nails is known as
+                    keratin.</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">With the popularity of high-definition cameras, it has become more difficult for
+                    makeup artists to conceal small imperfections on the bride’s face, and every detail is highlighted
+                    under the high-definition lens. HD makeup came to rescue the makeup artists and make the bride’s
+                    look flawless and camera ready.</p>
+            </div>
+            <!-- BRIDAL AIRBRUSH MAKEUP -->
+            {% elif image_text == 'BRIDAL AIRBRUSH MAKEUP': %}
+            <div class="service-content-row">
+                <h1> Flawless Elegance: Airbrush Bridal Makeup </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">A good makeup artist is what you need to give a look which will make you look
+                    perfect for you D DAY!</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">When we are all are drained and preparing for many things like a new wardrobe, our
+                    precious lehenga, and jewellery.</p>
+                <p class="text-block">How about we make it easier for you by taking care of another most crucial detail.
+                    Your look for the wedding make-up becomes an essential thing for the wedding as it gives your
+                    lehenga and jewellery the final touch.</p>
+            </div>
+            <!-- ENGAGEMENT MAKEUP -->
+            {% elif image_text == 'ENGAGEMENT MAKEUP': %}
+            <div class="service-content-row">
+                <h1> Exquisite Engagement Makeup for Brides </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">Engagement makeup is not just about looking beautiful; it’s about feeling
+                    confident and radiant.</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">Engagement is as essential as a wedding, as you are going to be the star of the
+                    night all attention will be on you. Mostly every makeup artist has their rates, but the basic range
+                    remains the same. But here we are providing the best engagement makeup for the bride at a low cost.
+                </p>
+            </div>
+            <!-- PARTY MAKEUP -->
+            {% elif image_text == 'PARTY MAKEUP': %}
+            <div class="service-content-row">
+                <h1> Unleash Your Stunning Party Makeup Look </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">Party makeup is the perfect blend of elegance and excitement, adding a touch of
+                    glamour to every celebration.
+                </p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">Are you ready to sparkle at your next party? At <strong>MerakMakeovers</strong>,
+                    our party makeup artists are here to ensure that your beauty fantasies become real. From smoky eyes
+                    that are full of drama to the glamorous red carpet look, we specialize in making a big splash by
+                    enhancing your natural beauty and giving you an aura of confidence and radiance.</p>
+            </div>
+            <!-- HAIR HIGHLIGHTS -->
+            {% elif image_text == 'HAIR HIGHLIGHTS': %}
+            <div class="service-content-row">
+                <h1> Elevate Your Look with Hair Highlights Services </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">Hair highlights techniques are used to change your hair colour.</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">Lightner is used for the brightness of your hair strands. Hair highlights include
+                    hair painting, foil highlights, chunking and frosting. In hair highlights, we can select any colour
+                    of our choice. Highlights provide hair with a fuller appearance.</p>
+                <p class="text-block"> Hair highlights are best for people with fine and thin hair tones.</p>
+            </div>
+            <!-- HAIR KERATIN TREATMENT -->
+            {% elif image_text == 'HAIR KERATIN TREATMENT': %}
+            <div class="service-content-row">
+                <h1> Discover the Benefits of Hair Keratin Treatment </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">A substance naturally produced by the body and found in hair and nails is known as
+                    keratin.</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">Beautiful hair is a never-ending pursuit. Keratin treatment helps to strengthen
+                    hair and it’s a very good treatment if you’re suffering from any hair issues. It also helps to
+                    straighten hair if you’re having curly or wavy hair. The following are the details of the best hair
+                    keratin treatment services for damaged hair.</p>
+            </div>
+            <!-- HAIR STYLING -->
+            {% elif image_text == 'HAIR STYLING': %}
+            <div class="service-content-row">
+                <h1> Transform Your Look with Expert Hair Styling Services </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">Hair styling is an art form that empowers you to express your unique personality
+                    and beauty, one strand at a time.</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">Haircare is the new thing in the market; it is sad to know that it is something
+                    new, as it always should have been your priority. Hair are the ones who get exposed to pollution a
+                    lot, and we cannot even control it, face washing is still something we can do three times a day, but
+                    taking care of hair is difficult.</p>
+            </div>
+            <!-- OZONE HAIR TREATMENT -->
+            {% elif image_text == 'OZONE HAIR TREATMENT': %}
+            <div class="service-content-row">
+                <h1> Experience the Healing Power of Ozone Hair Treatment </h1>
+            </div>
+            <div class="service-content-row">
+                <hr>
+            </div>
+            <div class="service-content-row">
+                <p class="color-text">Ozone hair treatment breathes new life into your locks, rejuvenating from the
+                    roots to the tips for hair that radiates health and vitality.</p>
+            </div>
+            <div class="service-content-row">
+                <p class="text-block">The look for the right remedy inside the fields of cosmetics and hair care by no
+                    means ends. The beauty business has seen a rise in ground-breaking treatments due to technological
+                    and revolutionary breakthroughs; one such marvel is Ozone Hair Treatment. Ozone Hair Treatment holds
+                    the capacity to completely transform the way we deal with our hair, in particular whilst combined
+                    with HD makeover techniques. Let’s have a look at the fine details of Ozone Hair Treatment and the
+                    way HD Makeover can change your hair.</p>
+            </div>
+            {% endif %}
+            <div class="service-content-row">
+                <hr>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="main-services ms2" id="main-services">
+        <h2><strong>GET GLAMMED UP!</strong></h2>
+        <form class="service-form" action="/services" method="post">
+            <div class="sf-grid" id="service-form">
+                <input class="service-input" autocomplete="off" name="first_name" placeholder="First Name" required
+                    type="text">
+            </div>
+            <div class="sf-grid">
+                <input class="service-input" autocomplete="off" name="last_name" placeholder="Last Name" required
+                    type="text">
+            </div>
+            <div class="sf-grid">
+                <select name="service" id="service" required>
+                    <option disabled {% if image_name=="services" : %} selected {% endif %} value="">SELECT</option>
+                    <option {% if image_name=="bridal_airbrush_makeup" : %} selected {% endif %}
+                        value="bridal_airbrush_makeup">BRIDAL AIRBRUSH MAKEUP</option>
+                    <option {% if image_name=="bridal_makeup" : %} selected {% endif %} value="bridal_makeup">BRIDAL
+                        MAKEUP</option>
+                    <option {% if image_name=="engagement_makeup" : %} selected {% endif %} value="engagement_makeup">
+                        ENGAGEMENT MAKEUP</option>
+                    <option {% if image_name=="party_makeup" : %} selected {% endif %} value="party_makeup">PARTY MAKEUP
+                    </option>
+                    <option {% if image_name=="hair_highlights" : %} selected {% endif %} value="hair_highlights">HAIR
+                        HIGHLIGHTS</option>
+                    <option {% if image_name=="hair_keratin_treatment" : %} selected {% endif %}
+                        value="hair_keratin_treatment">HAIR KERATIN TREATMENT</option>
+                    <option {% if image_name=="ozone_hair_treatment" : %} selected {% endif %}
+                        value="ozone_hair_treatment">OZONE HAIR TREATMENT</option>
+                    <option {% if image_name=="hair_styling" : %} selected {% endif %} value="hair_styling">HAIR STYLING
+                    </option>
+                </select>
+            </div>
+            <div class="sf-grid">
+                <!-- Regex from ChatGPT for Indian Phone numbers -->
+                <input autocomplete="off" class="service-input" name="phone_number" placeholder="Mobile No" required
+                    type="number">
+            </div>
+            <div class="sf-grid">
+                <input class="service-input" autocomplete="off" name="email" placeholder="Email" required type="email">
+            </div>
+            <div class="sf-grid">
+                <input class="service-input calendar" id="appointment_date" name="appointment_date" required
+                    type="date">
+            </div>
+            <div class="sf-grid_btn row_btn">
+                <button class="btn-services" type="submit">BOOK NOW</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}

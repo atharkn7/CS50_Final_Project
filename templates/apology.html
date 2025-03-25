@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+<!-- Extending Title -->
+{% block title %} Apology {% endblock %}
+
+<!-- Extending Body -->
+{% block body %}
+<main>
+    <div class="apology">
+        <div class="apology-content">
+            <h1> Error: {{error.code}} </h1>
+            <h4> {{error.error}} </h4>
+            <button class="btn-services" onclick="location.href='/'" type="submit">GO BACK</button>
+        </div>
+        <div>
+            <img src="/static/media/service_imgs/apology.png" alt="Apology Dog">
+        </div>
+    </div>
+</main>
+{% endblock %}
